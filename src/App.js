@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import Contacts from "./components/Contacts";
+import { useState } from "react"
+import AddContact from "./components/AddContact";
+import { Routes, Route } from "react-router-dom";
+import Success from "./components/Success"
+
 
 function App() {
+  const [contacts,setContacts]=useState([
+    {
+        //id:1,
+        name:'',
+        age:0,
+        email:'',
+        mobile:''
+    }
+  ])
+
+  //add contact
+  const addContact=(contact)=> {
+
+    const newContact= { ...contact}
+    setContacts([newContact])
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header />
+      
+      <Routes>
+        <Route path="/*" element={<AddContact onAdd={addContact}/>}/>
+        <Route path="/confirm" element={<Contacts contacts={contacts}/>}/>
+        <Route path="/success" element={<Success/>}/>
+      </Routes>  
     </div>
   );
 }
