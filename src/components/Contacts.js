@@ -6,7 +6,7 @@ const Contacts = ({contacts}) => {
     <>
     <h2 className="heading"> Confirm your details:</h2>
     {contacts.map((contact)=>(
-    <Contact /*key={contact.id}*/ contact={contact}/>
+    <Contact key={contact.id} contact={contact}/>
     
     ))}
 

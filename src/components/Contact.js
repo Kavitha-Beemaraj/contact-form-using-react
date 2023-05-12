@@ -1,7 +1,7 @@
 
 const Contact = ({contact}) => {
   return (
-    <div  className="task">
+    <div >
         <h3> Name: {contact.name}</h3>
         <h3> Age:{contact.age}</h3>
         <h3> Email id:{contact.email}</h3>

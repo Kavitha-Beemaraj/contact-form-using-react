@@ -9,7 +9,7 @@ import Success from "./components/Success"
 function App() {
   const [contacts,setContacts]=useState([
     {
-        //id:1,
+        id:1,
         name:'',
         age:0,
         email:'',
@@ -26,6 +26,12 @@ function App() {
   return (
     <div className="container">
       <Header />
+      <nav>
+        <button className="btn"><Link to="/*"> Home</Link></button>
+        <button className="btn"><Link to="/confirm"> Confirm</Link></button>
+        <button className="btn"><Link to="/success"> Success</Link></button>
+
+      </nav>
       
       <Routes>
         <Route path="/*" element={<AddContact onAdd={addContact}/>}/>
